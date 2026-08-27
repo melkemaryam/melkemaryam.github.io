@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+<title>EQUATE: Towards Globally Equitable Language Technologies — Hannah M. Claus</title>
+<meta name="description" content="A Cambridge Language Technology Lab initiative, led by Anna Korhonen, building an index and roadmap for more equitable language AI across the world's 7,000+ languages." />
+
+<link rel="canonical" href="https://melkemaryam.github.io/research/research-project-equate.html" />
+
+<meta property="og:title" content="EQUATE: Towards Globally Equitable Language Technologies — Hannah M. Claus" />
+<meta property="og:description" content="A Cambridge Language Technology Lab initiative, led by Anna Korhonen, building an index and roadmap for more equitable language AI across the world's 7,000+ languages." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melkemaryam.github.io/research/research-project-equate.html" />
+<meta name="twitter:card" content="summary" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+  /* Extra styles scoped to long-form project reading — shared with blog-post-template.html */
+  .post-header{ padding-block: clamp(3rem, 8vw, 5rem) 2rem; position: relative; }
+  .post-header .container{ max-width: 760px; }
+  .post-body{ padding-block: 1rem 4rem; }
+  .post-body .container{ max-width: 720px; }
+  .post-body p{ color: var(--ink-soft); font-size: 1.08rem; margin-bottom: 1.4em; }
+  .post-body h2{ font-size: 1.5rem; margin-top: 2.2em; margin-bottom: .6em; }
+  .post-body h3{ font-size: 1.2rem; margin-top: 1.8em; margin-bottom: .5em; }
+  .post-body ul{ list-style: disc; padding-left: 1.4em; margin: 0 0 1.4em; }
+  .post-body li{ color: var(--ink-soft); font-size: 1.08rem; margin-bottom: .5em; }
+  .post-body blockquote{
+    border-left: 3px solid var(--ochre);
+    margin: 1.6em 0;
+    padding-left: 1.2em;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--ink);
+  }
+  .post-meta{ display:flex; gap:1rem; flex-wrap:wrap; align-items:center; margin-top:1.2rem; }
+  .post-meta .blog-date{ font-size: .8rem; }
+  .back-link{ font-family: var(--font-mono); font-size:.85rem; text-decoration:none; color: var(--olive); display:flex; align-items:center; gap:.4em; margin-bottom:1.5rem; }
+  [data-theme="dark"] .back-link{ color: var(--ochre); }
+  .project-links{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top: 1.5rem; }
+  .post-hero-img{
+    min-height: 160px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 2rem;
+    border: var(--border);
+    background: linear-gradient(135deg, var(--olive), var(--ink));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sand);
+    font-family: var(--font-mono);
+    font-size: .8rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  .post-hero-img img{ width: 100%; height: auto; display: block; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-utility">
+    <div class="container">
+      <div class="social-links" aria-label="Social links">
+        <!-- PLACEHOLDER: replace # with your real profile URLs -->
+        <a href="https://www.linkedin.com/in/hannah-claus-042382199/" target="_blank" rel="noopener" aria-label="LinkedIn" data-social="linkedin">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="8" cy="8.2" r="1.1" fill="currentColor"/>
+            <path d="M8 11v6M12 17v-3.6c0-1.5 1-2.4 2.2-2.4S16 12 16 13.4V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <a href="https://github.com/melkemaryam" target="_blank" rel="noopener" aria-label="GitHub" data-social="github">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.6-.2.6-.43v-1.7c-2.45.53-3-1.07-3-1.07-.4-1.04-1-1.31-1-1.31-.82-.56.06-.55.06-.55.9.06 1.38.93 1.38.93.8 1.38 2.1.98 2.62.75.08-.58.32-.98.57-1.2-1.96-.22-4.02-.98-4.02-4.36 0-.96.34-1.75.9-2.37-.1-.22-.4-1.12.08-2.33 0 0 .74-.24 2.42.9a8.3 8.3 0 0 1 4.4 0c1.68-1.14 2.42-.9 2.42-.9.48 1.21.18 2.11.09 2.33.56.62.9 1.4.9 2.37 0 3.39-2.07 4.13-4.04 4.35.33.29.62.85.62 1.72v2.55c0 .24.15.52.61.43A9 9 0 0 0 12 3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="https://scholar.google.de/citations?user=EEA9Pu8AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener" aria-label="Google Scholar" data-social="scholar">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 5 3 10l9 5 7.5-4.17V16" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+            <path d="M7 12.3V16c0 1.4 2.24 2.5 5 2.5s5-1.1 5-2.5v-3.7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <!-- PLACEHOLDER: your real email -->
+        <a href="mailto:hmc78@cam.ac.uk" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+      <button class="theme-toggle" aria-label="Toggle dark mode">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav-main">
+    <div class="container">
+      <a href="../index.html#top" class="brand">Hannah M. <span>Claus</span></a>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 5H18M2 10H18M2 15H18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      Menu
+    </button>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html#about">About</a>
+      <a href="../index.html#research" class="is-active">Research</a>
+      <a href="../index.html#publications">Publications</a>
+      <a href="../index.html#media">Media</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#community">Community</a>
+      <a href="../index.html#cv">CV</a>
+      <a href="../index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <article>
+    <header class="post-header">
+<svg class="doodle" width="42" height="18" viewBox="0 0 44 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="top:8%;right:4%;"><polyline points="2,16 12,4 22,16 32,4 42,16" stroke="#6B7A34" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="container">
+        <a class="back-link" href="../index.html#research">&larr; Back to all research</a>
+        <p class="eyebrow">Collaboration</p>
+        <h1 style="font-size:var(--step-4); margin-top:.6rem;">EQUATE: Towards Globally Equitable Language Technologies</h1>
+        <div class="post-meta">
+          <span class="blog-date"><!-- PLACEHOLDER: confirm start date -->2024 — Present</span>
+          <span style="color:var(--ink-soft); font-size:.85rem;">· With Anna Korhonen (PI) and the Language Technology Lab, University of Cambridge</span>
+        </div>
+
+        <!-- PLACEHOLDER: header image — replace the placeholder box below with
+             <img src="../assets/your-image.jpg" alt="Describe the image" /> -->
+        <div class="post-hero-img"><img src="../assets/equate_header.png" alt="World map made out of humans." /></div>
+      </div>
+    </header>
+
+    <div class="weave-strip" aria-hidden="true"></div>
+
+    <div class="post-body">
+      <div class="container">
+        <!-- PLACEHOLDER: draft below based on the EQUATE project site — add your own specific role/contribution once confirmed. -->
+        <p>
+          EQUATE works to make language AI more equitable across the world's
+          7,000+ languages. Most language technology serves a small set of
+          dominant, Global-North languages, leaving the majority of the
+          world's linguistic communities digitally underrepresented —
+          EQUATE builds tools and partnerships to change that.
+        </p>
+
+        <h2>Motivation</h2>
+        <p>
+          AI's benefits are unevenly distributed by language. Communities
+          without "high-resource" languages are locked out of tools the rest
+          of the world takes for granted, which compounds existing gaps in
+          digital infrastructure and representation.
+        </p>
+
+        <h2>Approach</h2>
+        <p>
+          The project has two main strands: the EQUATE Language AI Readiness
+          Index, which assesses how ready a language and its community are
+          for technology adoption by combining AI-resource,
+          digital-infrastructure, and socioeconomic indicators; and COACT, a
+          community-centred, participatory, actionable roadmap to equitable
+          language AI, drawing on NLP, HCI, international development, and
+          participatory research.
+        </p>
+
+        <h3>Case studies</h3>
+        <p>
+          Case studies examine real development challenges: disaster risk
+          reduction and cultural preservation in Nepal, green jobs and
+          climate resilience in Uganda, cultural preservation in Peru, and
+          technology-needs assessments in Indonesia — alongside technical
+          research into small language models and culturally-aware,
+          transparent NLP approaches.
+        </p>
+
+        <blockquote>
+          Equity in language AI isn't just about better translation — it's
+          about who gets to participate in building the tools that shape
+          their own digital future.
+        </blockquote>
+
+        <h2>Outcomes &amp; impact</h2>
+        <p>
+          EQUATE is ongoing, led by Anna Korhonen and the Language Technology
+          Lab at the University of Cambridge, with funding from the European
+          Research Council and UK Research and Innovation.
+          <!-- PLACEHOLDER: add your specific role/contribution and any outputs once confirmed -->
+        </p>
+
+        <h2>Collaborators</h2>
+        <ul>
+          <li>Anna Korhonen (PI), University of Cambridge</li>
+          <li>Centre for Human-Inspired AI</li>
+          <li>University College London</li>
+          <li>Waseda University</li>
+          <li>Makerere University</li>
+          <li>Partner institutions in Nepal, Uganda, Peru, and Indonesia</li>
+        </ul>
+
+        <div class="project-links">
+          <a class="btn btn--ghost" href="https://www.equate-index.ai/en" target="_blank" rel="noopener">Visit the EQUATE website</a>
+          <!-- PLACEHOLDER: link to a related paper/output, if/when one exists -->
+          <a class="btn btn--ghost" href="https://www.equate-index.ai/en/pages/about-equate" target="_blank" rel="noopener">Related paper</a>
+        </div>
+
+        <h2>Credits &amp; disclosure</h2>
+        <p style="font-size:.9rem; color:var(--ink-soft);">
+          <!-- PLACEHOLDER: image credit — artist/source name, title, and license/link -->
+          Header image: From the EQUATE home page.
+        </p>
+        <p style="font-size:.9rem; color:var(--ink-soft);">
+          None of the text above was written or generated by AI.
+        </p>
+
+        <!-- Reshare -->
+        <div class="post-engage">
+          <span class="engage-label">Share this project</span>
+          <div class="share-row">
+            <a class="share-btn" data-share="x" target="_blank" rel="noopener" href="#">
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4l12 12M16 4L4 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <span class="share-label">X</span>
+            </a>
+            <a class="share-btn" data-share="linkedin" target="_blank" rel="noopener" href="#">
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 9v4M7 7v.01M10 13v-2.5a1.5 1.5 0 0 1 3 0V13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <span class="share-label">LinkedIn</span>
+            </a>
+            <a class="share-btn" data-share="email" href="#">
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4.5" width="14" height="11" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M4 6l6 4.5L16 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <span class="share-label">Email</span>
+            </a>
+            <button class="share-btn" data-share="copy">
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="7" width="9" height="9" rx="1.5" stroke="currentColor" stroke-width="1.6"/><path d="M13 7V5.5A1.5 1.5 0 0 0 11.5 4h-7A1.5 1.5 0 0 0 3 5.5v7A1.5 1.5 0 0 0 4.5 14H6" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span class="share-label">Copy link</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</main>
+
+<div class="weave-strip" aria-hidden="true"></div>
+
+<footer class="site-footer">
+  <div class="container">
+    <a href="../index.html#top" class="brand">Hannah M. Claus</a>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#research">Research</a>
+      <a href="../index.html#publications">Publications</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+    <div class="social-links" aria-label="Social links">
+      <!-- PLACEHOLDER: replace # with your real profile URLs -->
+      <a href="https://www.linkedin.com/in/hannah-claus-042382199/" target="_blank" rel="noopener" aria-label="LinkedIn" data-social="linkedin">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="8" cy="8.2" r="1.1" fill="currentColor"/>
+          <path d="M8 11v6M12 17v-3.6c0-1.5 1-2.4 2.2-2.4S16 12 16 13.4V17" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <a href="https://github.com/melkemaryam" target="_blank" rel="noopener" aria-label="GitHub" data-social="github">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.6-.2.6-.43v-1.7c-2.45.53-3-1.07-3-1.07-.4-1.04-1-1.31-1-1.31-.82-.56.06-.55.06-.55.9.06 1.38.93 1.38.93.8 1.38 2.1.98 2.62.75.08-.58.32-.98.57-1.2-1.96-.22-4.02-.98-4.02-4.36 0-.96.34-1.75.9-2.37-.1-.22-.4-1.12.08-2.33 0 0 .74-.24 2.42.9a8.3 8.3 0 0 1 4.4 0c1.68-1.14 2.42-.9 2.42-.9.48 1.21.18 2.11.09 2.33.56.62.9 1.4.9 2.37 0 3.39-2.07 4.13-4.04 4.35.33.29.62.85.62 1.72v2.55c0 .24.15.52.61.43A9 9 0 0 0 12 3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="https://scholar.google.de/citations?user=EEA9Pu8AAAAJ&hl=en&oi=ao" target="_blank" rel="noopener" aria-label="Google Scholar" data-social="scholar">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 5 3 10l9 5 7.5-4.17V16" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M7 12.3V16c0 1.4 2.24 2.5 5 2.5s5-1.1 5-2.5v-3.7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+      </a>
+      <!-- PLACEHOLDER: your real email -->
+      <a href="mailto:hmc78@cam.ac.uk" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+    <p class="footer-note">&copy; <span data-current-year></span> Hannah M. Claus. Built with community-centred AI in mind.</p>
+  </div>
+</footer>
+
+<button class="to-top" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9 14V4M9 4L4 9M9 4L14 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+
+
+<script src="../js/main.js"></script>
+</body>
+</html>
