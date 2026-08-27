@@ -92,16 +92,14 @@ Search each file for `PLACEHOLDER` and replace it with your real content:
   homepage `#blog` section to link to the new file
 - **Community** — workshops, teaching, consultancies
 - **CV / Background** — three columns of short timeline entries
-  (Education, Research Experience, Advisor/Consultancy), plus a real
-  CV file at `assets/cv.pdf` (the download button already points
-  there)
+  (Education, Research Experience, Advisor/Consultancy)
 - **Contact** — your real email, LinkedIn, GitHub, and Google Scholar
   URLs (used in the Contact section, the nav quick-links, and the
   footer — see "Social links" below)
 
 ## 3. Add your images
 
-Put files in `assets/` (e.g. `assets/portrait.jpg`, `assets/cv.pdf`).
+Put files in `assets/` (e.g. `assets/portrait.jpg`).
 In `index.html`, replace the hero placeholder:
 
 ```html
