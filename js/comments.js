@@ -181,9 +181,14 @@ function initComments() {
     commentEl.dataset.openReply = "true";
   }
 
-  function buildCommentEl(data, replies, allowReply) {
+  function buildCommentEl(data, replies, isReply, threadRootId) {
+    // threadRootId is the id every reply in this thread attaches to —
+    // replying from a nested reply still targets the top-level comment,
+    // so threads stay single-level no matter where "Reply" was clicked.
+    const rootId = threadRootId ?? data.id;
+
     const item = document.createElement("article");
-    item.className = "comment";
+    item.className = isReply ? "comment comment--reply" : "comment";
 
     const head = document.createElement("div");
     head.className = "comment-head";
@@ -208,14 +213,12 @@ function initComments() {
 
     item.append(head, body);
 
-    if (allowReply) {
-      const replyBtn = document.createElement("button");
-      replyBtn.type = "button";
-      replyBtn.className = "comment-reply-btn";
-      replyBtn.textContent = "Reply";
-      replyBtn.addEventListener("click", () => toggleReplyForm(item, data.id));
-      item.appendChild(replyBtn);
-    }
+    const replyBtn = document.createElement("button");
+    replyBtn.type = "button";
+    replyBtn.className = "comment-reply-btn";
+    replyBtn.textContent = "Reply";
+    replyBtn.addEventListener("click", () => toggleReplyForm(item, rootId));
+    item.appendChild(replyBtn);
 
     if (replies && replies.length) {
       const repliesEl = document.createElement("div");
@@ -223,7 +226,7 @@ function initComments() {
       replies
         .slice()
         .sort((a, b) => (a.createdAt?.toMillis?.() ?? 0) - (b.createdAt?.toMillis?.() ?? 0))
-        .forEach((r) => repliesEl.appendChild(buildCommentEl(r, null, false)));
+        .forEach((r) => repliesEl.appendChild(buildCommentEl(r, null, true, rootId)));
       item.appendChild(repliesEl);
     }
 
@@ -255,7 +258,7 @@ function initComments() {
     }
 
     topLevel.forEach((data) => {
-      list.appendChild(buildCommentEl(data, repliesByParent[data.id], true));
+      list.appendChild(buildCommentEl(data, repliesByParent[data.id], false));
     });
   }
 

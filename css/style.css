@@ -885,6 +885,11 @@ button{ font-family: inherit; cursor: pointer; }
   border-radius: var(--radius);
   padding: 1.1rem 1.3rem;
 }
+.comment--reply{
+  background: var(--cream);
+  border-color: var(--sand-line);
+  padding: .9rem 1.1rem;
+}
 .comment-head{
   display: flex;
   align-items: baseline;
@@ -926,8 +931,8 @@ button{ font-family: inherit; cursor: pointer; }
 .comment-reply-btn:hover{ color: var(--terracotta); }
 .comment-replies{
   margin: 1rem 0 0 2.4rem;
-  padding-left: 1.2rem;
-  border-left: var(--border);
+  padding: .2rem 0 0 1.2rem;
+  border-left: 3px solid var(--olive);
   display: grid;
   gap: 1rem;
 }
