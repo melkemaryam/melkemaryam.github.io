@@ -237,6 +237,16 @@ Every page built from `templates/blog-post-template.html` includes:
     `<section class="comments-section" data-page-id="...">` (already
     set per file) — if you rename a post file, keep its `data-page-id`
     the same so existing comments stay attached to it.
+  - **Replies** — each top-level comment has a "Reply" button; replies
+    render nested underneath it. Threading is single-level: replying
+    to a reply attaches to the original top-level comment instead of
+    nesting further, so threads stay flat and readable. A reply is
+    just a normal comment document with an added `parentId` field —
+    your existing security rules already allow this (they don't
+    restrict documents to an exact field set), so no Firebase changes
+    are needed. If you want to explicitly validate `parentId`'s type,
+    add this line inside the `allow create` condition:
+    `&& (!('parentId' in request.resource.data) || request.resource.data.parentId is string)`
 
 ## 9. Decorative doodles
 

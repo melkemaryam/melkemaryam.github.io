@@ -912,6 +912,29 @@ button{ font-family: inherit; cursor: pointer; }
   font-size: .92rem;
   font-style: italic;
 }
+.comment-reply-btn{
+  background: none;
+  border: none;
+  padding: 0 0 0 2.4rem;
+  margin-top: .5rem;
+  font-family: var(--font-mono);
+  font-size: .74rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--olive);
+}
+.comment-reply-btn:hover{ color: var(--terracotta); }
+.comment-replies{
+  margin: 1rem 0 0 2.4rem;
+  padding-left: 1.2rem;
+  border-left: var(--border);
+  display: grid;
+  gap: 1rem;
+}
+.comment-reply-form{
+  margin: .8rem 0 0 2.4rem;
+  padding: 1rem 1.2rem;
+}
 
 /* ==========================================================================
    Doodles
