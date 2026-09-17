@@ -211,28 +211,28 @@
           </div>
         </div>
 
-        <!-- Comments -->
-        <section class="comments-section" aria-label="Comments">
+        <!-- Comments — stored in Firebase Firestore, no login required to post.
+             New comments are held for approval (see README "Comments" section
+             for setup and moderation). data-page-id must be unique per post. -->
+        <section class="comments-section" aria-label="Comments" data-page-id="blog-post-template">
           <h2>Comments</h2>
           <span class="comments-count"></span>
 
           <form class="comment-form" novalidate>
-            <div class="field-row">
-              <div>
-                <label for="comment-name">Name</label>
-                <input type="text" id="comment-name" name="comment-name" placeholder="Your name" required />
-              </div>
-              <div>
-                <label for="comment-email">Email <span style="opacity:.6;">(not shown)</span></label>
-                <input type="email" id="comment-email" name="comment-email" placeholder="you@example.com" />
-              </div>
+            <div>
+              <label for="comment-name">Name</label>
+              <input type="text" id="comment-name" name="comment-name" placeholder="Your name" required />
+            </div>
+            <div class="hp-field" aria-hidden="true">
+              <label for="comment-website">Website</label>
+              <input type="text" id="comment-website" name="comment-website" tabindex="-1" autocomplete="off" />
             </div>
             <div>
               <label for="comment-message">Comment</label>
               <textarea id="comment-message" name="comment-message" rows="3" placeholder="Share your thoughts…" required></textarea>
             </div>
             <div class="form-foot">
-              <p class="form-note">Comments are stored in your own browser, not published publicly. See the README to connect a real commenting service.</p>
+              <p class="form-note comment-status" hidden></p>
               <button class="btn btn--primary" type="submit">Post comment</button>
             </div>
           </form>
@@ -297,5 +297,6 @@
 
 
 <script src="../js/main.js"></script>
+<script type="module" src="../js/comments.js"></script>
 </body>
 </html>

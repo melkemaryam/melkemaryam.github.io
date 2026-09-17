@@ -183,25 +183,60 @@ Every page built from `templates/blog-post-template.html` includes:
   devices/browsers), X, LinkedIn, Email, and Copy link. These just
   build a share-intent URL or copy the current page's link; nothing
   to configure.
-- **Comments** — a form and list at the bottom of each post. Because
-  GitHub Pages only serves static files (no backend/database),
-  comments are saved in **the visitor's own browser** via
-  `localStorage`, keyed to that post's URL. That means:
-  - Each visitor only sees comments they've posted themselves on
-    that device/browser — comments are **not** shared publicly or
-    visible to other visitors or to you as the site owner.
-  - This is fine for a lightweight "leave a note" feel, but if you
-    want real, shared, moderated public comments, swap this out for
-    a free static-friendly service such as:
-    - [giscus](https://giscus.app/) — comments backed by GitHub
-      Discussions
-    - [utterances](https://utteranc.es/) — comments backed by GitHub
-      Issues
-    - [Disqus](https://disqus.com/) — hosted comments widget
-  - To swap in one of these, replace the `<div class="comment-list">`
-    and `<form class="comment-form">` block in your post pages with
-    the embed script the service gives you, and you can remove the
-    comments logic from the bottom of `js/main.js`.
+- **Comments** — real, shared, public comments, self-built on
+  [Firebase Firestore](https://firebase.google.com) (free tier, no
+  credit card). No account needed to comment — just a name. New
+  comments are held for your approval before anyone else sees them
+  (`js/comments.js` writes them with `approved: false`), which is how
+  a login-free comment box stays spam-free.
+
+  **One-time setup:**
+  1. Go to [console.firebase.google.com](https://console.firebase.google.com/),
+     sign in, and click **Add project** (the free "Spark" plan is
+     enough — no credit card required). Name it anything.
+  2. In the project, go to **Build → Firestore Database → Create
+     database**. Pick a region close to your readers, and start in
+     production mode.
+  3. Open the **Rules** tab of Firestore Database and replace the
+     contents with:
+     ```
+     rules_version = '2';
+     service cloud.firestore {
+       match /databases/{database}/documents {
+         match /comments/{commentId} {
+           allow read: if resource.data.approved == true;
+           allow create: if request.resource.data.approved == false
+                         && request.resource.data.pageId is string
+                         && request.resource.data.name is string
+                         && request.resource.data.name.size() > 0
+                         && request.resource.data.name.size() < 100
+                         && request.resource.data.message is string
+                         && request.resource.data.message.size() > 0
+                         && request.resource.data.message.size() < 2000;
+           allow update, delete: if false;
+         }
+       }
+     }
+     ```
+     then click **Publish**. This lets anyone submit a comment
+     (unapproved) and read only approved ones — nobody can edit or
+     delete via the site itself; that's admin-only, from the console.
+  4. Go to **Project settings** (gear icon, top left) → **General**
+     tab → under "Your apps," click the web icon (`</>`) → register
+     an app (any nickname, no need for Firebase Hosting) → copy the
+     `firebaseConfig` object it shows you.
+  5. Open `js/comments.js` and paste your values over the
+     `firebaseConfig` placeholder near the top of the file. This one
+     file covers every post — no per-page setup needed.
+  - **To moderate:** in the Firebase console, go to **Firestore
+    Database → Data → comments**. Each new comment appears there with
+    `approved: false`. Click a document, change `approved` to `true`,
+    and it becomes publicly visible on the site. Delete the document
+    instead to reject a comment (e.g. spam).
+  - Each post needs a unique `data-page-id` on its
+    `<section class="comments-section" data-page-id="...">` (already
+    set per file) — if you rename a post file, keep its `data-page-id`
+    the same so existing comments stay attached to it.
 
 ## 9. Decorative doodles
 
