@@ -300,7 +300,7 @@
      Contact form (static hosting: no backend).
      Prevents default submit and gives a clear next step instead of
      silently failing. Replace with a real form endpoint (e.g. Formspree,
-     Netlify Forms, or a mailto link) when ready — see README.
+     Netlify Forms, or a mailto link) when ready.
      --------------------------------------------------------------------- */
   const contactForm = document.querySelector(".contact-form");
   if (contactForm) {

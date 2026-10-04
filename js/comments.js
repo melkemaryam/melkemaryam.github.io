@@ -7,14 +7,13 @@
    field to true in the Firebase console (Firestore Database > Data).
    A hidden honeypot field filters out simple bots.
 
-   Replies are single-level: you can reply to a top-level comment, but
-   a reply itself has no "Reply" button — replying to a reply attaches
-   to the original top-level comment instead, so threads stay flat and
-   readable rather than nesting indefinitely.
+   Replies are single-level: every comment has a "Reply" button, but
+   replying to a reply attaches to the original top-level comment, so
+   threads stay flat and readable rather than nesting indefinitely.
 
-   Setup: see README.md "Comments" section for how to create a free
-   Firebase project, apply the security rules, and get the config
-   object below.
+   The config below is the public web config. Access is enforced by the
+   Firestore security rules in the Firebase console: a comment can only
+   be read once approved == true, and only created with approved == false.
    ========================================================================== */
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";

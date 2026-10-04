@@ -2,7 +2,9 @@ name: Comment notifications
 
 # Every 15 minutes, check Firestore for comments waiting for approval and keep a
 # single GitHub issue in sync, so GitHub's notifications tell you to moderate.
-# Setup (one-time) is described in README.md under "Comment notifications".
+# Needs a repo secret named FIREBASE_SERVICE_ACCOUNT: the JSON key of a
+# read-only service account (role "Cloud Datastore Viewer") on the Firebase
+# project. Until it exists, this job just skips.
 on:
   schedule:
     - cron: "*/15 * * * *"
@@ -26,7 +28,7 @@ jobs:
       # Until the secret exists, succeed quietly instead of failing every 15 minutes.
       - name: Skip if the Firebase key isn't configured
         if: env.FIREBASE_SERVICE_ACCOUNT == ''
-        run: echo "FIREBASE_SERVICE_ACCOUNT secret is not set, nothing to do. See README.md."
+        run: echo "FIREBASE_SERVICE_ACCOUNT secret is not set, nothing to do. Add it under Settings > Secrets and variables > Actions."
 
       - uses: actions/checkout@v4
         if: env.FIREBASE_SERVICE_ACCOUNT != ''
