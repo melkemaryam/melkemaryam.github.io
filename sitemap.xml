@@ -6,43 +6,43 @@
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://melkemaryam.github.io/</loc>
+    <loc>https://hannahmclaus.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://melkemaryam.github.io/blog.html</loc>
+    <loc>https://hannahmclaus.com/blog.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://melkemaryam.github.io/media.html</loc>
+    <loc>https://hannahmclaus.com/media.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://melkemaryam.github.io/research/research-project-Revitalising.html</loc>
+    <loc>https://hannahmclaus.com/research/research-project-Revitalising.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://melkemaryam.github.io/research/research-project-epistemic_injustic.html</loc>
+    <loc>https://hannahmclaus.com/research/research-project-epistemic_injustic.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://melkemaryam.github.io/research/research-project-equate.html</loc>
+    <loc>https://hannahmclaus.com/research/research-project-equate.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://melkemaryam.github.io/research/research-project-data_collection.html</loc>
+    <loc>https://hannahmclaus.com/research/research-project-data_collection.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <!--
   <url>
-    <loc>https://melkemaryam.github.io/blog/2026-01-my-post.html</loc>
+    <loc>https://hannahmclaus.com/blog/2026-01-my-post.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>

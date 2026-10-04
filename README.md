@@ -40,7 +40,7 @@ original colors), even though their values are now greens — rename them in
 
 ## 1. Publish it on GitHub Pages
 
-This site is set up to publish at **https://melkemaryam.github.io/** via
+This site is set up to publish at **https://hannahmclaus.com/** via
 the repo `melkemaryam/melkemaryam.github.io` (already created).
 
 1. Push these files to the repository root:
@@ -54,7 +54,15 @@ the repo `melkemaryam/melkemaryam.github.io` (already created).
    ```
 2. In the repo on GitHub: **Settings → Pages → Build and deployment →
    Source: Deploy from a branch → Branch: `main` / `root`** → Save.
-3. Your site will be live at `https://melkemaryam.github.io/`.
+3. Your site will be live at `https://hannahmclaus.com/`.
+
+**Custom domain:** `hannahmclaus.com` is registered at IONOS and points
+at GitHub Pages via DNS (four `A` records for `@` to GitHub's
+`185.199.108–111.153` addresses, plus a `www` CNAME to
+`melkemaryam.github.io`). The `CNAME` file in the repo root tells
+GitHub Pages which domain to serve — don't delete it, or the custom
+domain setting is lost on the next deploy. The old
+`melkemaryam.github.io` address redirects to the custom domain.
 
 No build tools, frameworks, or dependencies are required — it's plain
 HTML/CSS/JS plus Google Fonts loaded via CDN link tags.
@@ -285,7 +293,7 @@ and index the site properly:
   LinkedIn, X, or Slack.
 - **Canonical URLs** on every page avoid duplicate-content confusion.
 
-All of these already point at `https://melkemaryam.github.io/`. If you
+All of these already point at `https://hannahmclaus.com/`. If you
 ever change the site's URL (new repo, custom domain), search every HTML
 file for the old URL and update it there and in `sitemap.xml` /
 `robots.txt`. The `sameAs` links in the structured data are already
