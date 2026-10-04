@@ -16,6 +16,8 @@ blog/                             One file per real blog post (copied from the t
 research/                         One file per real research project (copied from the template)
 css/style.css                    All styles and design tokens (colors, type, spacing)
 js/main.js                       Nav, dark-mode toggle, filters, animations
+js/comments.js                   Firebase-backed comments and replies on blog posts
+.github/                         Scheduled workflow that notifies you of comments awaiting approval
 assets/                          Put your portrait, CV PDF, and images here
   favicon.svg                      The green sun browser-tab icon, linked from every page
 sitemap.xml                      Lists your pages for search engines
@@ -255,6 +257,50 @@ Every page built from `templates/blog-post-template.html` includes:
     are needed. If you want to explicitly validate `parentId`'s type,
     add this line inside the `allow create` condition:
     `&& (!('parentId' in request.resource.data) || request.resource.data.parentId is string)`
+
+### Comment notifications
+
+A scheduled GitHub Actions workflow
+(`.github/workflows/comment-notifications.yml`, script in
+`.github/scripts/notify.mjs`) checks Firestore every ~15 minutes for
+comments with `approved: false` and keeps **one GitHub issue** in sync:
+
+- new pending comment → it opens an issue (or comments on the open one)
+  and @-mentions you, so GitHub emails/notifies you
+- nothing new since last check → it stays quiet
+- everything approved or deleted → it closes the issue itself
+
+Because this repo is public, the issue only shows **counts per page**,
+never a commenter's name or message. Approve or delete comments in the
+Firebase console (the issue links straight there) rather than closing the
+issue by hand.
+
+**One-time setup** (the workflow does nothing, and doesn't fail, until the
+secret below exists):
+1. Open [console.cloud.google.com](https://console.cloud.google.com/),
+   pick the Firebase project (`website-comments-af007`) in the top bar →
+   **IAM & Admin → Service Accounts → Create service account**. Name it
+   `comment-notifier`, grant it only the role **Cloud Datastore Viewer**
+   (read-only — it can't change or delete comments), and finish.
+2. Open that service account → **Keys → Add key → Create new key → JSON**.
+   A key file downloads.
+3. Store it as a GitHub secret, then delete the downloaded file:
+   ```bash
+   gh secret set FIREBASE_SERVICE_ACCOUNT --repo melkemaryam/melkemaryam.github.io < ~/Downloads/<the-key-file>.json
+   rm ~/Downloads/<the-key-file>.json
+   ```
+4. Test it: **Actions → Comment notifications → Run workflow** (or
+   `gh workflow run comment-notifications.yml`).
+
+Good to know:
+- It's polling, not instant: expect a notification within roughly 15–30
+  minutes of a comment (GitHub can delay scheduled runs).
+- GitHub switches off scheduled workflows in a public repo after 60 days
+  without any repository activity (it emails a warning first). If that
+  happens, re-enable the workflow under the Actions tab, or just push any
+  change.
+- The key lives only in GitHub's encrypted secrets. If it ever leaks,
+  delete it under Service Accounts → Keys and create a new one.
 
 ## 9. Decorative doodles
 

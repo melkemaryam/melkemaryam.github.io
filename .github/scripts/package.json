@@ -1,0 +1,8 @@
+{
+  "name": "comment-notifier",
+  "private": true,
+  "description": "Used only by .github/workflows/comment-notifications.yml",
+  "dependencies": {
+    "@google-cloud/firestore": "^9.3.1"
+  }
+}

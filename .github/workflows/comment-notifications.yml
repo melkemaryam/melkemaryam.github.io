@@ -1,0 +1,47 @@
+name: Comment notifications
+
+# Every 15 minutes, check Firestore for comments waiting for approval and keep a
+# single GitHub issue in sync, so GitHub's notifications tell you to moderate.
+# Setup (one-time) is described in README.md under "Comment notifications".
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: comment-notifications
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+    steps:
+      # Until the secret exists, succeed quietly instead of failing every 15 minutes.
+      - name: Skip if the Firebase key isn't configured
+        if: env.FIREBASE_SERVICE_ACCOUNT == ''
+        run: echo "FIREBASE_SERVICE_ACCOUNT secret is not set, nothing to do. See README.md."
+
+      - uses: actions/checkout@v4
+        if: env.FIREBASE_SERVICE_ACCOUNT != ''
+
+      - uses: actions/setup-node@v4
+        if: env.FIREBASE_SERVICE_ACCOUNT != ''
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        if: env.FIREBASE_SERVICE_ACCOUNT != ''
+        run: npm install --prefix .github/scripts --no-audit --no-fund
+
+      - name: Check for comments awaiting approval
+        if: env.FIREBASE_SERVICE_ACCOUNT != ''
+        run: node .github/scripts/notify.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
